@@ -1,3 +1,39 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root{
+    --main-color: #dfe6e6;
+    --primary: #ffa700;
+    --heading: #322514;
+    --subHeading: #b9c1d8;
+    --text-color: #262626;
+}
+@font-face {
+    font-family: "GilroyBlack";
+    src: url(../src/assets/fonts/Gilroy-Black.ttf);
+}
+@font-face {
+    font-family: "GilroyRegular";
+    src: url(../src/assets/fonts/Gilroy-Regular.ttf);
+}
+@font-face {
+    font-family: "GilroyLight";
+    src: url(../src/assets/fonts/Gilroy-Light.ttf);
+}
+@font-face {
+    font-family: "GilroyBold";
+    src: url(../src/assets/fonts/Gilroy-Bold.ttf);
+}
+@font-face {
+    font-family: "GilroyMeium";
+    src: url(../src/assets/fonts/Gilroy-Medium.ttf);
+}
+@font-face {
+    font-family: "GilroySemiBold";
+    src: url(../src/assets/fonts/Gilroy-SemiBold.ttf);
+}
+@font-face {
+    font-family: "GilroyExtraBold";
+    src: url(../src/assets/fonts/Gilroy-ExtraBold.ttf);
+}

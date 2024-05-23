@@ -5,7 +5,24 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        mainColor: "var(--main-color)",
+        primary: "var(--primary)",
+        heading: "var(--heading)",
+        subHeading: "var(--subHeading)",
+        textColor: "var(--textColor",
+      },
+      fontFamily: {
+        gilroyLight: ["GilroyLight"],
+        gilroyRegular: ["GilroyRegular"],
+        gilroyBlack: ["GilroyBlack"],
+        gilroyBold: ["GilroyBold"],
+        gilroyMeium: ["GilroyMeium"],
+        gilroySemiBold: ["GilroySemiBold"],
+        gilroyExtraBold: ["GilroyExtraBold"],
+      }
+    },
   },
   plugins: [],
 }

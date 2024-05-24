@@ -1,4 +1,4 @@
-export const RegisterIcon = () => {
+const RegisterIcon = () => {
   return (
 <svg xmlns="http://www.w3.org/2000/svg" width="219" height="219" viewBox="0 0 219 219" fill="none">
 <path d="M21.1248 204.331C77.745 204.064 141.255 204.06 197.875 204.331C141.255 204.603 77.745 204.599 21.1248 204.331Z" fill="#263238"/>
@@ -231,3 +231,5 @@ export const RegisterIcon = () => {
 </svg>
   )
 }
+
+export default RegisterIcon

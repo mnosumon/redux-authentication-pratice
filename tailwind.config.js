@@ -11,7 +11,8 @@ export default {
         primary: "var(--primary)",
         heading: "var(--heading)",
         subHeading: "var(--subHeading)",
-        textColor: "var(--textColor",
+        textColor: "var(--textColor)",
+        lineColor: 'var(--line-color)'
       },
       fontFamily: {
         gilroyLight: ["GilroyLight"],

@@ -2,6 +2,7 @@ import React from 'react'
 import Input from '../utilities/Input'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
+import { signUp } from '../../warning/ragistration'
 
 let initialState = {
     firstName: "",
@@ -17,6 +18,7 @@ let initialState = {
 const RegisterFrom = () => {
     let formik = useFormik({
         initialValues: initialState,
+        validationSchema: signUp,
         onSubmit: ()=> {
             console.log("hello");
         }

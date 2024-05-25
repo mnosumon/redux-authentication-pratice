@@ -10,13 +10,13 @@ const Ragistration = () => {
     <Helmet>
       <title>Registration</title>
     </Helmet>
-      <div className="relative">
-        <div className="h-96 w-96 bg-primary rounded-full absolute -top-40 -left-40"></div>
-        <div className="flex justify-center my-20 gap-8 container">
-          <div className="w-[45%]">
-            <RegisterDecoration title="Lets go your journey" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis error facere, autem similique veniam accusamus. Impedit voluptate consequatur dolorum quia numquam. Quo ex vitae at aliquam alias voluptatum iste quia." icon={<RegisterIcon/>} />
+      <div className="relative z-10">
+        <div className="h-96 w-96 bg-subHeading rounded-full absolute -top-40 -left-40 hidden md:block -z-10"></div>
+        <div className="w-full flex justify-center px-5 my-20 gap-8 lg:container">
+          <div className=" md:w-[35%] xl:w-[45%] hidden md:block">
+            <RegisterDecoration title="Lets go your journey" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis error facere, autem similique veniam accusamus." icon={<RegisterIcon/>} />
           </div>
-          <div className="w-[45%]"><RegisterFrom/></div>
+          <div className="w-full md:w-[55%] xl:w-[45%] sm:px-8 md:px-2"><RegisterFrom/></div>
         </div>
       </div>
     </>

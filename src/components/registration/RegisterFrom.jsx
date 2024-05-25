@@ -27,7 +27,7 @@ const RegisterFrom = () => {
 console.log(formik);
   return (
     <div>
-        <div className="w-[80%] shadow-md border border-[#e1dddd] p-4 rounded-md">
+        <div className="w-full shadow-md border border-[#e1dddd] p-4 rounded-md">
             <form onSubmit={formik.handleSubmit} action="" className='flex flex-col gap-5'>
                 <div className=''>
                     <input onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.firstName} type="text" name="firstName" placeholder="First Name"  className={errors.firstName && touched.firstName ?'py-3 px-6 w-full font-gilroyRegular focus:outline-none border border-lineColor rounded-md':'py-3 px-6 w-full font-gilroyRegular focus:outline-none border border-lineColor rounded-md mb-4'} />
@@ -76,7 +76,7 @@ console.log(formik);
                     </select>
                 </div>
                 <div>
-                    <div className="flex items-center w-[50%]">
+                    <div className="flex items-center w-[75%] sm:w-[50%] lg:text-xl">
                         <input onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value='male' type="radio" name="gender" id="male"  className='py-3 px-6 w-full font-gilroyRegular focus:outline-none border border-lineColor rounded-md' />
                         <label htmlFor="male">Male</label>
                         <input onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value='female' type="radio" name="gender" id="female"  className='py-3 px-6 w-full font-gilroyRegular focus:outline-none border border-lineColor rounded-md' />
@@ -88,9 +88,9 @@ console.log(formik);
                         )
                     }
                 </div>
-                <div className="flex justify-between items-center">
-                    <button type='submit' className='px-3 py-1 font-gilroyBold border border-lineColor rounded-full bg-primary'>Submit</button>
-                    <p className='font-gilroyRegular '>Already have an account? <Link to='/' className='text-primary underline'>Sing in</Link></p>
+                <div className="sm:flex justify-between items-center">
+                    <button type='submit' className='px-3 py-1 lg:px-5 lg:py-2 font-gilroyBold border border-lineColor rounded-full bg-primary lg:text-xl'>Submit</button>
+                    <p className='font-gilroyRegular text-sm sm:text-base lg:text-xl mt-3 sm:mt-0 text-right'>Already have an account? <Link to='/' className='text-primary underline'>Sing in</Link></p>
                 </div>
             </form>
         </div>

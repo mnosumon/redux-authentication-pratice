@@ -8,7 +8,7 @@ const Ragistration = () => {
     <>
       <div className="relative">
         <div className="h-96 w-96 bg-primary rounded-full absolute -top-40 -left-40"></div>
-        <div className="flex justify-center items-center gap-8 h-screen container">
+        <div className="flex justify-center my-20 gap-8 container">
           <div className="w-[45%]">
             <RegisterDecoration title="Lets go your journey" content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis error facere, autem similique veniam accusamus. Impedit voluptate consequatur dolorum quia numquam. Quo ex vitae at aliquam alias voluptatum iste quia." icon={<RegisterIcon/>} />
           </div>

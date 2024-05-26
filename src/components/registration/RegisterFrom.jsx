@@ -9,9 +9,9 @@ let initialState = {
     lastName: "",
     email: "",
     password: "",
-    birthYear: " ",
-    birthMonth: " ",
-    birthDate: " ",
+    birthYear: new Date().getFullYear(),
+    birthMonth: new Date().getDate(),
+    birthDate: new Date().getDate(),
     gender: "",
 }
 
@@ -24,9 +24,16 @@ const RegisterFrom = () => {
         }
     })
     let {errors, touched} = formik
-    let years = Array.from(new Array(105), 
-    (val, index)=> formik.values.birthYear - index)
-    console.log(years)
+
+    let storeBirthYear = new Date().getFullYear()
+    let years = Array.from(new Array(105), (val, index)=> storeBirthYear - index)
+    let month = Array.from(new Array(12), (val, index)=> 1 + index)
+    console.log(years);
+  
+
+    // let years = Array.from(new Array(105), 
+    // (val, index)=> formik.values.birthYear - index)
+    // console.log(years)
     
   return (
     <div>
@@ -61,15 +68,19 @@ const RegisterFrom = () => {
                 <div className="flex justify-between font-gilroyRegular">
                     <select onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete='off' value={formik.values.birthYear} name='birthYear' className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
                         <option>Birth year</option>
-                        <option>255</option>
-                        <option>258</option>
-                        <option>256</option>
+                        {
+                            years.map((item, index)=>(
+                                <option key={index}>{item}</option>
+                            ))
+                        }
                     </select>
                     <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthMonth}  name="birthMonth"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
                         <option>Birth month</option>
-                        <option>255</option>
-                        <option>258</option>
-                        <option>256</option>
+                        {
+                            month.map((item, index)=>(
+                                <option key={index}>{item}</option>
+                            ))
+                        }
                     </select>
                     <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthDate}  name="birthDate"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
                         <option>Birth date</option>

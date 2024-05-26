@@ -5,6 +5,7 @@ import RegisterFrom from '../../components/registration/RegisterFrom'
 import { Helmet } from 'react-helmet-async'
 
 const Ragistration = () => {
+  
   return (
     <>
     <Helmet>

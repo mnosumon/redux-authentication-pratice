@@ -20,11 +20,14 @@ const RegisterFrom = () => {
         initialValues: initialState,
         validationSchema: signUp,
         onSubmit: ()=> {
-            console.log("hello");
+            console.log("Succesfull");
         }
     })
     let {errors, touched} = formik
-console.log(formik);
+    let years = Array.from(new Array(105), 
+    (val, index)=> formik.values.birthYear - index)
+    console.log(years)
+    
   return (
     <div>
         <div className="w-full shadow-md border border-[#e1dddd] p-4 rounded-md">

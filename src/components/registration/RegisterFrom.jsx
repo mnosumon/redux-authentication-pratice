@@ -10,7 +10,7 @@ let initialState = {
     email: "",
     password: "",
     birthYear: new Date().getFullYear(),
-    birthMonth: new Date().getDate(),
+    birthMonth: new Date().getMonth() + 1,
     birthDate: new Date().getDate(),
     gender: "",
 }
@@ -28,7 +28,11 @@ const RegisterFrom = () => {
     let storeBirthYear = new Date().getFullYear()
     let years = Array.from(new Array(105), (val, index)=> storeBirthYear - index)
     let month = Array.from(new Array(12), (val, index)=> 1 + index)
-    console.log(years);
+    let day = ()=>{
+        return new Date(formik.values.birthYear, formik.values.birthMonth, 0).getDate()
+    }
+    let dates = Array.from(new Array(day()),(val, index)=> 1 + index)
+    
   
 
     // let years = Array.from(new Array(105), 
@@ -84,9 +88,11 @@ const RegisterFrom = () => {
                     </select>
                     <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthDate}  name="birthDate"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
                         <option>Birth date</option>
-                        <option>255</option>
-                        <option>258</option>
-                        <option>256</option>
+                        {
+                            dates.map((item, index)=>(
+                                <option key={index}>{item}</option>
+                            ))
+                        }
                     </select>
                 </div>
                 <div>

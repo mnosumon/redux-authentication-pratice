@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Input from '../utilities/Input'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
@@ -16,11 +16,24 @@ let initialState = {
 }
 
 const RegisterFrom = () => {
+    let [ageValidation, setAgeValidation] = useState("")
     let formik = useFormik({
         initialValues: initialState,
         validationSchema: signUp,
         onSubmit: ()=> {
-            console.log("Succesfull");
+            let currentDate = new Date()
+            let pickedDate = new Date(
+                formik.values.birthYear,
+                formik.values.birthMonth - 1,
+                formik.values.birthDate
+            )
+            let adult = new Date(1970 + 18, 0, 1)
+            let oldMan = new Date(1970 + 70, 0, 1)
+            if (currentDate - pickedDate < adult) {
+                return setAgeValidation("You are not 18+")
+            }else if (currentDate - pickedDate > oldMan) {
+                return setAgeValidation("You are also 70+")
+            }
         }
     })
     let {errors, touched} = formik
@@ -32,12 +45,6 @@ const RegisterFrom = () => {
         return new Date(formik.values.birthYear, formik.values.birthMonth, 0).getDate()
     }
     let dates = Array.from(new Array(day()),(val, index)=> 1 + index)
-    
-  
-
-    // let years = Array.from(new Array(105), 
-    // (val, index)=> formik.values.birthYear - index)
-    // console.log(years)
     
   return (
     <div>
@@ -69,31 +76,36 @@ const RegisterFrom = () => {
                         )
                     }
                 </div>
-                <div className="flex justify-between font-gilroyRegular">
-                    <select onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete='off' value={formik.values.birthYear} name='birthYear' className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
-                        <option>Birth year</option>
-                        {
-                            years.map((item, index)=>(
-                                <option key={index}>{item}</option>
-                            ))
-                        }
-                    </select>
-                    <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthMonth}  name="birthMonth"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
-                        <option>Birth month</option>
-                        {
-                            month.map((item, index)=>(
-                                <option key={index}>{item}</option>
-                            ))
-                        }
-                    </select>
-                    <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthDate}  name="birthDate"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
-                        <option>Birth date</option>
-                        {
-                            dates.map((item, index)=>(
-                                <option key={index}>{item}</option>
-                            ))
-                        }
-                    </select>
+                <div>
+                    <div className="flex justify-between font-gilroyRegular">
+                        <select onChange={formik.handleChange} onBlur={formik.handleBlur} autoComplete='off' value={formik.values.birthYear} name='birthYear' className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
+                            <option>Birth year</option>
+                            {
+                                years.map((item, index)=>(
+                                    <option key={index}>{item}</option>
+                                ))
+                            }
+                        </select>
+                        <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthMonth}  name="birthMonth"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
+                            <option>Birth month</option>
+                            {
+                                month.map((item, index)=>(
+                                    <option key={index}>{item}</option>
+                                ))
+                            }
+                        </select>
+                        <select onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value={formik.values.birthDate}  name="birthDate"  className='border rounded-md border-lineColor w-[30%] outline-none p-2'>
+                            <option>Birth date</option>
+                            {
+                                dates.map((item, index)=>(
+                                    <option key={index}>{item}</option>
+                                ))
+                            }
+                        </select>
+                    </div>
+                    {
+                        ageValidation && <p className='text-sm font-gilroyRegular py-2 text-red-500'>{ageValidation}</p>
+                    }
                 </div>
                 <div>
                     <div className="flex items-center w-[75%] sm:w-[50%] lg:text-xl">

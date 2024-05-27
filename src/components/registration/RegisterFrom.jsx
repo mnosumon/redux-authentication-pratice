@@ -33,6 +33,8 @@ const RegisterFrom = () => {
                 return setAgeValidation("You are not 18+")
             }else if (currentDate - pickedDate > oldMan) {
                 return setAgeValidation("You are also 70+")
+            }else{
+                return setAgeValidation("")
             }
         }
     })

@@ -3,6 +3,7 @@ import Input from '../utilities/Input'
 import { Link } from 'react-router-dom'
 import { useFormik } from 'formik'
 import { signUp } from '../../warning/ragistration'
+import Gemder from './Gemder'
 
 let initialState = {
     firstName: "",
@@ -110,17 +111,7 @@ const RegisterFrom = () => {
                     }
                 </div>
                 <div>
-                    <div className="flex items-center w-[75%] sm:w-[50%] lg:text-xl">
-                        <input onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value='male' type="radio" name="gender" id="male"  className='py-3 px-6 w-full font-gilroyRegular focus:outline-none border border-lineColor rounded-md' />
-                        <label htmlFor="male">Male</label>
-                        <input onChange={formik.handleChange} autoComplete='off' onBlur={formik.handleBlur} value='female' type="radio" name="gender" id="female"  className='py-3 px-6 w-full font-gilroyRegular focus:outline-none border border-lineColor rounded-md' />
-                        <label htmlFor="female">Female</label>
-                    </div>
-                    {
-                        errors.gender && touched.gender && (
-                            <p className='text-sm font-gilroyRegular py-2 text-red-500'>{errors.gender}</p>
-                        )
-                    }
+                    <Gemder formik={formik} errors={errors} touched={touched} />
                 </div>
                 <div className="sm:flex justify-between items-center">
                     <button type='submit' className='px-3 py-1 lg:px-5 lg:py-2 font-gilroyBold border border-lineColor rounded-full bg-primary lg:text-xl'>Submit</button>
